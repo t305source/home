@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Neumorphic</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #e0e5ec;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        color: #555;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .btn {
+        display: block;
+        width: 260px;
+        padding: 18px;
+        margin: 15px auto;
+        border-radius: 18px;
+        font-size: 18px;
+        color: #444;
+        text-decoration: none;
+
+        background: #e0e5ec;
+        box-shadow: 9px 9px 16px #a3b1c6,
+                    -9px -9px 16px #ffffff;
+
+        transition: 0.2s ease-in-out;
+    }
+
+    .btn:active {
+        box-shadow: inset 9px 9px 16px #a3b1c6,
+                    inset -9px -9px 16px #ffffff;
+        transform: scale(0.98);
+    }
+    
+    /* 💬 Alert Box */
+.alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #f1f5fb;
+  box-shadow: 6px 6px 12px #cbd2e0, -6px -6px 12px #fff;
+  border-radius: 16px;
+  padding: 16px 28px;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+.alert-box.show { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.alert-box.success { border-left: 6px solid #27ae60; color: #27ae60; }
+.alert-box.error { border-left: 6px solid #e74c3c; color: #e74c3c; }
+.alert-box.info { border-left: 6px solid #2980b9; color: #2980b9; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <img src="logo.png" style="height:80px; background:orange; border-radius:15px" alt="TOYSKINGDOM">
+    <h1>Selamat Datang</h1>
+    <p><strong>Pilih Menu yang dibutuhkan :</strong></p>
+
+    <!-- Ubah href ke link milik kamu -->
+    <a href="https://t305source.github.io/formtbt305/" class="btn">Form TB</a>
+    <a href="https://t305source.github.io/emwaycode/" class="btn">Search Kode Emway</a>
+    <a href="#" class="btn" id="btnStock">Stock <i>(coming soon)</i></a>
+</div>
+
+
+<script>
+function showAlert(type, message, duration = 2500) {
+  const alertBox = document.createElement("div");
+  alertBox.className = `alert-box ${type}`;
+  alertBox.innerHTML = `<p>${message}</p>`;
+  document.body.appendChild(alertBox);
+
+  setTimeout(() => alertBox.classList.add("show"), 10);
+
+  setTimeout(() => {
+    alertBox.classList.remove("show");
+    setTimeout(() => alertBox.remove(), 300);
+  }, duration);
+}
+
+  const btn = document.getElementById("btnStock");
+  
+  btn.addEventListener("click", () => {
+      showAlert("info", "Fitur Validasi masih dalam pengembangan  🚧");
+    });
+    
+</script>
+</body>
+</html>
